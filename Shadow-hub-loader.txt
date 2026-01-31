@@ -18,6 +18,7 @@ local currentPlaceId = game.PlaceId
 if LoaderConfig.SupportedGames[currentPlaceId] then
     local success, err = pcall(function()
         loadstring(game:HttpGet(LoaderConfig.SupportedGames[currentPlaceId]))()
+    end)
     
     if not success then
         warn("Failed to load game script: " .. err)
