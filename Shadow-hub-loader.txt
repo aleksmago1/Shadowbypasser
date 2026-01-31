@@ -1,0 +1,62 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752345732668.lua.txt"))()
+local LoaderConfig = {
+    Enabled = true,
+    SupportedGames = {
+        [72250771850707] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Protected_3038478597792348.lua.txt", -- I WANNA RUN AWAY TOWER
+        [103661214879860] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Protected_2799871034071738.lua.txt", -- Abilities tower
+        [133018535489761] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Protected_3038478597792348.lua.txt", -- Troll kids tower
+        [120305334357383] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Protected_3038478597792348.lua.txt", -- Troll boom tower
+        [13753090786] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Protected_2784701568760450.lua.txt", -- Anime Tower
+        [114928582002436] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752347774311.lua.txt", -- [BACK] Anime Tower
+        [134652771083903] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752347774311.lua.txt",
+        [107220386751453] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752385395768.lua.txt", -- Anime Hero Tower
+        [70696786991815] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752389746456.lua.txt", -- Squid Game Troll Tower
+        [92311380085534] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752397058760.lua.txt", -- HERO TOWER
+        [126803389599637] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/fly.lua.txt", -- Anime Tower (by infinity studio) {need to have a script}
+        [136892544628283] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/fly.lua.txt", -- Anime troll tower {need to have a script}
+        [189707] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752412884206.lua.txt", -- Natural Disaster Survival
+        [122377415276375] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752498048150.lua.txt", -- Super Heroes Tower
+        [108527382681174] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Anime-trolling-tower", -- Anime trolling tower
+        [115726899804555] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Troll-pin-tower-2", -- Troll pin tower 2
+        [71575927487690] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Build-a-brainrot", -- Build a brainrot
+        [137505724366535] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Boxing-tower", -- Boxing Tower
+        [123741668193208] = "https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/Jump-rope",
+    },
+    NotificationSettings = {
+        Title = "Game Loader",
+        Duration = 5
+    }
+}
+
+if not LoaderConfig.Enabled then
+    return 
+end
+
+local currentPlaceId = game.PlaceId
+
+if LoaderConfig.SupportedGames[currentPlaceId] then
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(LoaderConfig.SupportedGames[currentPlaceId]))()
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "SHADOW HUB";
+            Text = "In some minutes this script will be fully disabled";
+            Duration = 5;
+        })
+    end)
+    
+    if not success then
+        warn("Failed to load game script: " .. err)
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = LoaderConfig.NotificationSettings.Title,
+            Text = "Failed to load game script, try to re execute the script",
+            Duration = LoaderConfig.NotificationSettings.Duration
+        })
+    end
+else
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aleksmago1/shadowhub/refs/heads/main/obfuscated_script-1752393404500.lua.txt"))()
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = LoaderConfig.NotificationSettings.Title,
+        Text = "Game not supported",
+        Duration = LoaderConfig.NotificationSettings.Duration
+    })
+end
