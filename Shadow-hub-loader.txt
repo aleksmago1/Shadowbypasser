@@ -1,7 +1,7 @@
 local LoaderConfig = {
     Enabled = true,
     SupportedGames = {
-        [116756675465096] = "", -- jujutsu slap tower
+        [116756675465096] = "https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/obfuscated_script-1769867641662.lua.txt", -- jujutsu slap tower
      },
     NotificationSettings = {
         Title = "Game Loader",
