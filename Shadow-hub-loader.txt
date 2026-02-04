@@ -1,7 +1,7 @@
 local LoaderConfig = {
     Enabled = true,
     SupportedGames = {
-        [116756675465096] = "https://vss.pandadevelopment.net/virtual/file/ea30575d70fd49dd", -- jujutsu slap tower
+        [116756675465096] = "https://vss.pandadevelopment.net/virtual/file/ea30575d70fd49dd", 
      },
     NotificationSettings = {
         Title = "Game Loader",
@@ -17,14 +17,32 @@ local currentPlaceId = game.PlaceId
 
 if LoaderConfig.SupportedGames[currentPlaceId] then
     local success, err = pcall(function()
-        loadstring(game:HttpGet(LoaderConfig.SupportedGames[currentPlaceId]))()
+        local url = LoaderConfig.SupportedGames[currentPlaceId]
+        
+        -- Step 1: Get the raw text
+        local scriptContent = game:HttpGet(url)
+        
+        if not scriptContent or scriptContent == "" then
+            error("The URL returned empty content.")
+        end
+
+        -- Step 2: Try to turn text into a function (without running it yet)
+        local executable, loadErr = loadstring(scriptContent)
+
+        -- Step 3: Check if it compiled correctly
+        if not executable then
+            error("Syntax error in downloaded script: " .. tostring(loadErr))
+        end
+
+        -- Step 4: Run it
+        executable()
     end)
     
     if not success then
-        warn("Failed to load game script: " .. err)
+        warn("Loader Error: " .. err)
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = LoaderConfig.NotificationSettings.Title,
-            Text = "Failed to load game script, try to re-execute.",
+            Text = "Error loading script. Check console (F9).",
             Duration = LoaderConfig.NotificationSettings.Duration
         })
     end
