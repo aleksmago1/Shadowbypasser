@@ -1,7 +1,7 @@
 local LoaderConfig = {
     Enabled = true,
     SupportedGames = {
-        [116756675465096] = "loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/ea30575d70fd49dd"))()", -- jujutsu slap tower
+        [116756675465096] = "https://vss.pandadevelopment.net/virtual/file/ea30575d70fd49dd", -- jujutsu slap tower
      },
     NotificationSettings = {
         Title = "Game Loader",
