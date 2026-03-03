@@ -1,4 +1,4 @@
-_G.Speed = _G.Speed or 16
+_G.Speed = _G.Speed
 
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
