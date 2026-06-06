@@ -1,0 +1,87 @@
+-- What are you spying on here? The key system is in the script, not in the loader.
+local LoaderConfig = {
+    Enabled = true,
+    SupportedGames = {
+        [116756675465096] = "https://vss.pandauth.com/virtual/file/55b5501467de4256",
+        [118891884735667] = "https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/teamwork%20tower%20script.lua",
+        [108207853263201] = "https://vss.pandauth.com/virtual/file/7efb668c8bcf4243",
+        [115385184606689] = "https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/aura%20slap%20troll%20tower",
+        [100055483398966] = "https://vss.pandauth.com/virtual/file/7facc4fd44a444fd",
+        [101655544218290] = "https://vss.pandauth.com/virtual/file/be71f72a129943f3",
+        [72250771850707] = "https://vss.pandauth.com/virtual/file/a059ea5f233a408d",
+        [135044601642528] = "https://vss.pandauth.com/virtual/file/791684b6eee944fa",
+        [117541588186905] = "https://vss.pandauth.com/virtual/file/619cde5884bc4d5d",
+        [113237219730178] = "https://vss.pandauth.com/virtual/file/16a545b3d4964578",
+        [88080689424450] = "https://vss.pandauth.com/virtual/file/021663239b684016",
+        [13753090786] = "https://vss.pandauth.com/virtual/file/a94a01c62ffd456c",
+        [119455737640001] = "https://vss.pandauth.com/virtual/file/74ff1c01bbef412f",
+        [126142669892959] = "https://vss.pandauth.com/virtual/file/a7247bc4cda24cac",
+        [123008238865653] = "https://vss.pandauth.com/virtual/file/16a545b3d4964578",
+        [87328024256401] = "https://vss.pandauth.com/virtual/file/34bb3bc5cbfe443c",
+        [87289227477141] ="https://vss.pandauth.com/virtual/file/16a545b3d4964578",
+        [128828223305987] = "https://vss.pandauth.com/virtual/file/e1b7f586d9644241",
+        [125687897212345] = "https://vss.pandauth.com/virtual/file/e00307157d494162",
+        [16993432698] = "https://vss.pandauth.com/virtual/file/cf2b85763de34374",
+        [88951201927122] = "https://vss.pandauth.com/virtual/file/1329b4cc300e40d1",
+        [72525366293660] = "https://vss.pandauth.com/virtual/file/05bef1f8adb84d7f",
+        [78379544456646] = "https://vss.pandauth.com/virtual/file/4c2b149b54c54925"
+    },
+    NotificationSettings = {
+        Title = "Game Loader",
+        Duration = 3
+    }
+}
+
+if not LoaderConfig.Enabled then return end
+
+local currentPlaceId = game.PlaceId
+local StarterGui = game:GetService("StarterGui")
+
+if LoaderConfig.SupportedGames[currentPlaceId] then
+    StarterGui:SetCore("SendNotification", {
+        Title = LoaderConfig.NotificationSettings.Title,
+        Text = "Loading... Game may freeze for a few seconds.",
+        Duration = LoaderConfig.NotificationSettings.Duration
+    })
+
+    StarterGui:SetCore("SendNotification", {
+        Title = "WARNING",
+        Text = "Some scripts may have issues. We're working on a fix.",
+        Duration = LoaderConfig.NotificationSettings.Duration
+    })
+
+    task.wait(0.5)
+
+    local success, err = pcall(function()
+        local url = LoaderConfig.SupportedGames[currentPlaceId]
+        
+        local scriptContent = game:HttpGet(url)
+        
+        if not scriptContent or scriptContent == "" then
+            error("The URL returned empty content.")
+        end
+
+        local executable, loadErr = loadstring(scriptContent)
+
+        if not executable then
+            error("Syntax error in downloaded script: " .. tostring(loadErr))
+        end
+
+        executable()
+    end)
+    
+    if not success then
+        warn("Loader Error: " .. err)
+        StarterGui:SetCore("SendNotification", {
+            Title = LoaderConfig.NotificationSettings.Title,
+            Text = "Error loading script. Check console (F9).",
+            Duration = LoaderConfig.NotificationSettings.Duration
+        })
+    end
+else
+    StarterGui:SetCore("SendNotification", {
+        Title = LoaderConfig.NotificationSettings.Title,
+        Text = "Game not supported",
+        Duration = LoaderConfig.NotificationSettings.Duration
+    })
+end
