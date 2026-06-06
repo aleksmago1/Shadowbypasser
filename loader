@@ -46,7 +46,7 @@ if LoaderConfig.SupportedGames[currentPlaceId] then
 
     StarterGui:SetCore("SendNotification", {
         Title = "WARNING",
-        Text = "Some scripts may have issues. We're working on a fix.",
+        Text = "We've identified the cause. Delta may still experience issues, but this is not caused by our script.",
         Duration = LoaderConfig.NotificationSettings.Duration
     })
 
