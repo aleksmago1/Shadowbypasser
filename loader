@@ -35,7 +35,7 @@ local LoaderConfig = {
 
 if not LoaderConfig.Enabled then return end
 
-local currentPlaceId = game.PlaceId
+local currentGameId = game.GameId
 local StarterGui = game:GetService("StarterGui")
 
 if LoaderConfig.SupportedGames[currentPlaceId] then
