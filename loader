@@ -23,7 +23,7 @@ local LoaderConfig = {
         [125687897212345] = "https://vss.pandauth.com/virtual/file/e00307157d494162",
         [16993432698] = "https://vss.pandauth.com/virtual/file/cf2b85763de34374",
         [88951201927122] = "https://vss.pandauth.com/virtual/file/1329b4cc300e40d1",
-        [72525366293660] = "https://vss.pandauth.com/virtual/file/05bef1f8adb84d7f",
+        [72525366293660] = "https://vss.pandauth.com/kv/05bef1f8adb84d7f",
         [78379544456646] = "https://vss.pandauth.com/virtual/file/4c2b149b54c54925"
     },
     NotificationSettings = {
