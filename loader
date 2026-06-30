@@ -26,7 +26,7 @@ local LoaderConfig = {
         [72525366293660] = "https://vss.pandauth.com/kv/05bef1f8adb84d7f",
         [78379544456646] = "https://vss.pandauth.com/virtual/file/4c2b149b54c54925",
         [126794703390156] = "https://vss.pandauth.com/virtual/file/34bb3bc5cbfe443c",
-        [138397085393482] = "https://vss.pandauth.com/kv/9eb841700700f7fb"
+        [138397085393482] = "https://vss.pandauth.com/kv/1eb9a10ddde64817"
     },
     NotificationSettings = {
         Title = "Game Loader",
