@@ -6,7 +6,6 @@ local LoaderConfig = {
     SupportedGames = {
         [116756675465096] = "https://vss.pandauth.com/virtual/file/55b5501467de4256",
         [118891884735667] = "https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/teamwork%20tower%20script.lua",
-        [108207853263201] = "https://vss.pandauth.com/virtual/file/7efb668c8bcf4243",
         [115385184606689] = "https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/aura%20slap%20troll%20tower",
         [100055483398966] = "https://vss.pandauth.com/virtual/file/7facc4fd44a444fd",
         [101655544218290] = "https://vss.pandauth.com/virtual/file/be71f72a129943f3",
