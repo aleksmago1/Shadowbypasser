@@ -1,4 +1,4 @@
-_G.BlackUniverseLoaded = true
+_G.BlackUniverseLoaded = false
 
 -- What are you spying on here? The key system is in the script, not in the loader.
 local LoaderConfig = {
