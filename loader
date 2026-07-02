@@ -1,3 +1,5 @@
+_G.BlackUniverseLoaded = true
+
 -- What are you spying on here? The key system is in the script, not in the loader.
 local LoaderConfig = {
     Enabled = true,
@@ -20,7 +22,7 @@ local LoaderConfig = {
         [87328024256401] = "https://vss.pandauth.com/virtual/file/34bb3bc5cbfe443c",
         [87289227477141] ="https://vss.pandauth.com/virtual/file/16a545b3d4964578",
         [128828223305987] = "https://vss.pandauth.com/virtual/file/e1b7f586d9644241",
-        [125687897212345] = "https://vss.pandauth.com/virtual/file/e00307157d494162",
+        [125687897212345] = "https://vss.pandauth.com/kv/e00307157d494162",
         [16993432698] = "https://vss.pandauth.com/virtual/file/cf2b85763de34374",
         [88951201927122] = "https://vss.pandauth.com/virtual/file/1329b4cc300e40d1",
         [72525366293660] = "https://vss.pandauth.com/kv/05bef1f8adb84d7f",
