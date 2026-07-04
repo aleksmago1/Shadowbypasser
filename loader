@@ -43,7 +43,7 @@ local StarterGui = game:GetService("StarterGui")
 if LoaderConfig.SupportedGames[currentPlaceId] then
     StarterGui:SetCore("SendNotification", {
         Title = LoaderConfig.NotificationSettings.Title,
-        Text = "The keysytem may not work, we're working on a fix.",
+        Text = "Loading... Game may freeze for a few seconds.",
         Duration = LoaderConfig.NotificationSettings.Duration
     })
 
